@@ -55,6 +55,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="p8H-Xi-Lrn"/>
+                                </connections>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qti-A8-IAR">
                                 <rect key="frame" x="74" y="253" width="266" height="32"/>
@@ -64,6 +67,9 @@
                                     <segment title="18%"/>
                                     <segment title="20%"/>
                                 </segments>
+                                <connections>
+                                    <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="xWZ-3H-ETV"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -74,9 +80,19 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="7r6-ko-e99"/>
+                    <connections>
+                        <outlet property="billAmount" destination="eAt-qH-myz" id="6JZ-K8-vIl"/>
+                        <outlet property="tipControl" destination="Qti-A8-IAR" id="swS-LI-OrK"/>
+                        <outlet property="tipLabel" destination="rQ3-dI-O2u" id="qF9-52-25V"/>
+                        <outlet property="totalLabel" destination="x8y-7c-KH3" id="sPu-Pm-aqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="W3h-Ir-eQI"/>
+                <tapGestureRecognizer id="W3h-Ir-eQI">
+                    <connections>
+                        <action selector="onTap:" destination="BYZ-38-t0r" id="LVB-3W-JBL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="124.55357142857142"/>
         </scene>
