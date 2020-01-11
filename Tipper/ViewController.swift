@@ -14,11 +14,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    let defaults = UserDefaults.standard
+    var themeChoice:Int = 0
+    let aColor = UIColor(named: "bgColor")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tipControl.selectedSegmentIndex = defaults.integer(forKey: "defaultTip")
+        themeChoice = defaults.integer(forKey: "themeColor")
+        if themeChoice == 0 {
+            overrideUserInterfaceStyle = .light
+        }
+        if themeChoice == 1 {
+            overrideUserInterfaceStyle = .dark
+        }
+        view.backgroundColor = aColor
     }
 
     @IBAction func onTap(_ sender: Any) {
