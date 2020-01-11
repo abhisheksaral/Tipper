@@ -55,6 +55,15 @@ class SettingsViewController: UIViewController {
         }else if themeControl.selectedSegmentIndex == 1 {
             defaults.set(1, forKey: "themeColor")
         }
+        
+        if defaults.integer(forKey: "themeColor") == 0 {
+            overrideUserInterfaceStyle = .light
+        }
+        if defaults.integer(forKey: "themeColor") == 1 {
+            overrideUserInterfaceStyle = .dark
+        }
+        view.backgroundColor = aColor
+        
     }
     
     /*
